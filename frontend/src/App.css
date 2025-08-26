@@ -1,0 +1,207 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Root Variables for a Modern Theme --- */
+:root {
+  --bg-color: #0f172a; /* Dark blue-gray */
+  --primary-color-transparent: rgba(255, 255, 255, 0.05); /* For glass effect */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color-1: #8a2be2; /* Blue Violet */
+  --accent-color-2: #4169e1; /* Royal Blue */
+  --text-color: #e2e8f0; /* Light gray */
+  --text-color-darker: #94a3b8; /* Slate gray */
+  --success-color: #22c55e; /* Green */
+  --danger-color: #ef4444; /* Red */
+  --border-radius: 12px;
+  --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* --- General App Styling --- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1e3a8a, var(--bg-color));
+  background-attachment: fixed;
+  color: var(--text-color);
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .app-main {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* --- Glassmorphism Container Styling --- */
+.form-container, .user-list-container {
+  background: var(--primary-color-transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Form Styling --- */
+form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent-color-2);
+  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.3);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* --- Button Styling --- */
+button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  flex-grow: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-submit {
+  background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+  color: white;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+}
+
+.btn-cancel {
+  background-color: #475569; /* Slate 600 */
+  color: var(--text-color);
+}
+
+.btn-cancel:hover {
+  background-color: #64748b; /* Slate 500 */
+}
+
+/* --- User List Styling --- */
+.user-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.user-email {
+  color: var(--text-color-darker);
+  font-size: 0.9rem;
+}
+
+.user-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.user-actions button {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.btn-edit {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #16a34a; /* Darker Green */
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626; /* Darker Red */
+}
