@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 // The base URL of your Spring Boot API
-const API_URL = 'https://my-fullstack-app-production-39ac.up.railway.app/api/users';
+//const API_URL = 'https://my-fullstack-app-production-39ac.up.railway.app/api/users';
+const API_URL = 'http://localhost:8080/api/users';
 
 function App() {
   // State to hold the list of users
