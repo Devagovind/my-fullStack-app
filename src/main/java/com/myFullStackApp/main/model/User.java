@@ -18,8 +18,8 @@ public class User {
     @Column(name = "created_at") // Maps this field to the 'created_at' column
     private Instant createdAt;
 
-    // --- Getters and Setters ---
-    // (Required by JPA)
+    @Column(nullable = false)
+    private String password;
 
     public Long getId() {
         return id;
@@ -51,5 +51,13 @@ public class User {
 
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
