@@ -6,6 +6,12 @@ function UserDashboard() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
+  // Define handleLogout first and wrap it in useCallback for stability
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  }, [navigate]);
+
   const fetchUsers = useCallback(async () => {
     try {
       const response = await api.get('/users');
@@ -16,7 +22,7 @@ function UserDashboard() {
         handleLogout();
       }
     }
-  }, []);
+  }, [handleLogout]); // Add handleLogout as a dependency to fix the build error
 
   useEffect(() => {
     fetchUsers();
@@ -31,11 +37,6 @@ function UserDashboard() {
         console.error('Error deleting user:', error);
       }
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
   };
 
   return (
