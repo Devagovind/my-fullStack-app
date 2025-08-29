@@ -17,6 +17,7 @@ function Login() {
     try {
       const response = await api.post('/auth/login', formData);
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('username', formData.username);
       navigate('/dashboard'); // Redirect to the dashboard after login
     } catch (err) {
       setError('Invalid username or password.');
