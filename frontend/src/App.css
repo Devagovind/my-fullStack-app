@@ -295,7 +295,6 @@ button {
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
