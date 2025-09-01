@@ -393,3 +393,227 @@ button {
   font-size: 0.9rem;
   border: 1px solid var(--success-color);
 }
+
+.dashboard-container {
+  width: 100%;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--primary-color-transparent);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+}
+.card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color-darker);
+}
+.card .amount {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.card .amount.positive {
+  color: var(--success-color);
+}
+.card .amount.negative {
+  color: var(--danger-color);
+}
+
+/* --- Setup Page Styling --- */
+.setup-page-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.setup-card {
+  width: 100%;
+  max-width: 700px;
+  background: var(--primary-color-transparent);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+}
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.setup-form h3 {
+  margin: 0;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.expense-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.expense-row input {
+  flex-grow: 1;
+}
+.btn-remove {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+manage-page-container { display: flex; justify-content: center; width: 100%; }
+.manage-card { width: 100%; max-width: 800px; background: var(--primary-color-transparent); backdrop-filter: blur(10px); border-radius: var(--border-radius); border: 1px solid var(--border-color); padding: 2.5rem; }
+.manage-form { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+.income-row { display: flex; gap: 1rem; align-items: center; }
+.income-row input { flex-grow: 1; }
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+th { color: var(--text-color-darker); font-weight: 600; }
+.actions-cell { text-align: right; }
+.btn-delete-small { background-color: var(--danger-color); color: white; padding: 0.4rem 0.8rem; font-size: 0.8rem; border-radius: 6px; }
+.add-expense-form { display: flex; gap: 1rem; margin-top: 1rem; }
+.danger-zone { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--danger-color); }
+.danger-zone h3 { color: var(--danger-color); }
+.danger-zone p { color: var(--text-color-darker); margin-top: 0; }
+.btn-danger { background-color: var(--danger-color); color: white; }
+
+/* --- Dashboard Transactions --- */
+.transactions-container { margin-top: 2rem; background: var(--primary-color-transparent); backdrop-filter: blur(10px); border-radius: var(--border-radius); border: 1px solid var(--border-color); padding: 1.5rem; }
+.transactions-list { list-style: none; padding: 0; margin: 0; }
+.transaction-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color); }
+.transaction-item:last-child { border-bottom: none; }
+.transaction-amount { font-weight: 600; }
+.transaction-item.income .transaction-amount { color: var(--success-color); }
+.transaction-item.expense .transaction-amount { color: var(--danger-color); }
+
+/* FILE: src/App.css */
+/* (Keep all your existing styles and add these new ones at the end) */
+
+/* --- New Dashboard & Chart Styling --- */
+.dashboard-actions { display: flex; gap: 1rem; }
+.charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem; }
+.chart-card { background: var(--primary-color-transparent); backdrop-filter: blur(10px); border-radius: var(--border-radius); border: 1px solid var(--border-color); padding: 1.5rem; }
+.chart-card h3 { margin-top: 0; text-align: center; color: var(--text-color-darker); }
+.recharts-wrapper { font-size: 12px; } /* Style chart text */
+
+/* --- Transaction Modal Styling --- */
+.modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 2rem; width: 100%; max-width: 450px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.modal-content h2 { margin-top: 0; }
+.modal-content form { display: flex; flex-direction: column; gap: 1rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
+
+/* FILE: src/App.css */
+/* (Add these to the end of your existing CSS) */
+
+.loading-container, .no-data-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: var(--text-color-darker);
+}
+
+/* Make recharts tooltips look good in dark mode */
+.recharts-default-tooltip {
+  background-color: var(--bg-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--border-radius) !important;
+}
+
+/* --- New Dashboard Transaction Table Styling --- */
+
+.transactions-table-container {
+  margin-top: 2rem;
+  background: var(--primary-color-transparent);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+}
+
+.transactions-table-container h3 {
+  margin-top: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-wrapper {
+  max-height: 400px; /* Makes the table scrollable if it gets too long */
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-color-darker);
+  position: sticky; /* Makes header stay on scroll */
+  top: 0;
+  background: var(--bg-color); /* Prevents text from showing through */
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+td .transaction-amount.income {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+td .transaction-amount.expense {
+  color: var(--danger-color);
+  font-weight: 600;
+}
+
+.pill {
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pill.income {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+}
+
+.pill.expense {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger-color);
+}

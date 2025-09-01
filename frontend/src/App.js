@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-
 import './App.css';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import UserDashboard from './components/UserDashboard';
+import DashboardPage from './pages/DashboardPage';
 import Header from './components/Header'; // <-- Import Header
 import ProfilePage from './pages/ProfilePage'; // <-- Import ProfilePage
 
@@ -33,7 +33,7 @@ function App() {
 
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<UserDashboard />} />
+          <Route path="/" element={<DashboardPage />} /> {/* <-- New main page */}
           <Route path="/profile" element={<ProfilePage />} />
         </Route>
 
