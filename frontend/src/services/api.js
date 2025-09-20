@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-//const API_URL = 'https://my-fullstack-app-production-39ac.up.railway.app/api'; // Your live Railway URL
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = 'https://my-fullstack-app-production-39ac.up.railway.app/api'; // live Railway URL
+//const API_URL = 'http://localhost:8080/api/';
 
 const api = axios.create({
   baseURL: API_URL,
