@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <header className="app-header">
-      <h1 onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+      <h1 onClick={() => navigate('/')}>
         FinanceTracker
       </h1>
       <div className="header-actions">
