@@ -3,22 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 function Login() {
-  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     try {
-      const response = await api.post('/auth/login', formData);
+      const response = await api.post('/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem('username', formData.username);
-      navigate('/dashboard'); // Redirect to the dashboard after login
+      localStorage.setItem('username', username);
+      navigate('/'); // Redirect to the main dashboard after login
     } catch (err) {
       setError('Invalid username or password.');
       console.error('Login failed:', err);
@@ -26,22 +23,23 @@ function Login() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-form">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+    <div className="auth-page-wrapper">
+      <div className="auth-container">
+        <h2>Welcome Back!</h2>
+        <p className="auth-subtitle">Login to access your dashboard</p>
+        <form onSubmit={handleSubmit} className="auth-form">
           <input
             type="text"
-            name="username"
             placeholder="Username"
-            onChange={handleInputChange}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
           <input
             type="password"
-            name="password"
             placeholder="Password"
-            onChange={handleInputChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
           {error && <p className="error-message">{error}</p>}
