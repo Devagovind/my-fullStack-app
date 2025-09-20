@@ -7,7 +7,7 @@ import Signup from './components/Signup';
 import DashboardPage from './pages/DashboardPage';
 import Header from './components/Header'; // <-- Import Header
 import ProfilePage from './pages/ProfilePage'; // <-- Import ProfilePage
-
+import InvestmentPage from './pages/InvestmentPage';
 // A layout component for authenticated pages
 const AppLayout = () => (
   <div className="app-container">
@@ -35,6 +35,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<DashboardPage />} /> {/* <-- New main page */}
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/investments" element={<InvestmentPage />} /> {/* <-- ADD THIS ROUTE */}
         </Route>
 
         {/* Redirect any other path to the main page */}
