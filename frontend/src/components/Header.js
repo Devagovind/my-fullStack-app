@@ -19,6 +19,7 @@ function Header() {
         <nav>
           <Link to="/">Dashboard</Link>
           <Link to="/investments">Investments</Link> {/* <-- NEW LINK */}
+          <Link to="/budgets">Budgets</Link> {/* <-- NEW LINK */}
         </nav>
       </div>
       <div className="header-actions">

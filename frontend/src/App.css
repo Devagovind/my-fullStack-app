@@ -262,3 +262,103 @@ td .transaction-amount.expense { color: var(--danger-color); font-weight: 600; }
     overflow-x: auto;
   }
 }
+
+/* FILE: src/App.css */
+/* (Add these new styles to the end of your existing CSS) */
+
+/* --- Budget Page Styling --- */
+.budget-page-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h2 {
+  font-size: 2rem;
+  color: var(--text-color-darker);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.budget-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.budget-item {
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.budget-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.category-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-color-darker);
+}
+
+.budget-amount {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.budget-setter input {
+  max-width: 150px;
+  text-align: right;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.budget-setter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-category-form {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.add-category-form h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.add-category-form form {
+  display: flex;
+  gap: 1rem;
+}

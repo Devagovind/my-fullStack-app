@@ -1,6 +1,7 @@
 // FILE: src/main/java/com/myFullStackApp/main/service/FinancialService.java
 package com.myFullStackApp.main.service;
 
+import com.myFullStackApp.main.dto.TransactionDTO;
 import com.myFullStackApp.main.model.Transaction;
 import com.myFullStackApp.main.model.User;
 import com.myFullStackApp.main.repository.TransactionRepository;
@@ -27,9 +28,12 @@ public class FinancialService {
     }
 
     // GET ALL TRANSACTIONS FOR A USER
-    public List<Transaction> getTransactionsForUser(String username) {
+    public List<TransactionDTO> getTransactionsForUser(String username) {
         User user = getUserByUsername(username);
-        return transactionRepository.findByUserId(user.getId());
+        List<Transaction> transactions = transactionRepository.findByUserId(user.getId());
+
+        // Convert the list of entities to a list of DTOs
+        return transactions.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
     // GET FINANCIAL SUMMARY (INCOME vs EXPENSE)
@@ -78,5 +82,19 @@ public class FinancialService {
         User user = getUserByUsername(username);
         transactionRepository.deleteByUserId(user.getId());
         financialProfileRepository.deleteByUserId(user.getId());
+    }
+
+    private TransactionDTO convertToDto(Transaction transaction) {
+        TransactionDTO dto = new TransactionDTO();
+        dto.setId(transaction.getId());
+        dto.setName(transaction.getName());
+        dto.setAmount(transaction.getAmount());
+        dto.setType(transaction.getType());
+        dto.setTransactionDate(transaction.getTransactionDate());
+        if (transaction.getCategory() != null) {
+            dto.setCategoryId(transaction.getCategory().getId());
+            dto.setCategoryName(transaction.getCategory().getName());
+        }
+        return dto;
     }
 }

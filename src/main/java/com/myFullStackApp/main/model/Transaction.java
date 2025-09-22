@@ -21,6 +21,10 @@ public class Transaction {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id") // This links to the new column
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -69,4 +73,11 @@ public class Transaction {
         this.user = user;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }

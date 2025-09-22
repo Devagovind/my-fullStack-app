@@ -8,6 +8,7 @@ import DashboardPage from './pages/DashboardPage';
 import Header from './components/Header'; // <-- Import Header
 import ProfilePage from './pages/ProfilePage'; // <-- Import ProfilePage
 import InvestmentPage from './pages/InvestmentPage';
+import BudgetPage from './pages/BudgetPage'; // <-- Import the new page
 // A layout component for authenticated pages
 const AppLayout = () => (
   <div className="app-container">
@@ -34,6 +35,7 @@ function App() {
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<DashboardPage />} /> {/* <-- New main page */}
+          <Route path="/budgets" element={<BudgetPage />} /> {/* <-- ADD THIS ROUTE */}
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/investments" element={<InvestmentPage />} /> {/* <-- ADD THIS ROUTE */}
         </Route>

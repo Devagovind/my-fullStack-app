@@ -1,5 +1,6 @@
 package com.myFullStackApp.main.controller;
 
+import com.myFullStackApp.main.dto.TransactionDTO;
 import com.myFullStackApp.main.model.Transaction;
 import com.myFullStackApp.main.service.FinancialService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class TransactionController {
     private FinancialService financialService;
 
     @GetMapping
-    public List<Transaction> getAllTransactions(Authentication authentication) {
+    public List<TransactionDTO> getAllTransactions(Authentication authentication) {
         return financialService.getTransactionsForUser(authentication.getName());
     }
 
